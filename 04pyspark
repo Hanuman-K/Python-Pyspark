@@ -1,0 +1,12 @@
+df1=df.select("Eno","Fname","Lname")
+display(df1)
+df.filter(df.Salary>=20000).show()
+df.filter((df.Salary>=20000)&(df.Department=="IT")).show()
+df.filter((df.Salary>=20000)|(df.Department=="IT")).show()
+
+from pyspark.sql.functions import concat,lit
+df2=df.withColumn("Fullname",concat(df.Fname,lit(" "),df.Lname))\
+    .withColumn("Finalsal",df.Salary+df.Salary*0.2)
+    
+display(df2)
+df2.drop("Fname","Lname","Salary").show()
