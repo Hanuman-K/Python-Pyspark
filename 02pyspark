@@ -1,0 +1,14 @@
+from pyspark.sql.types import StructType,StructField,IntegerType,StringType
+columns=StructType(
+    [
+    StructField("cno",IntegerType(),True),
+    StructField("cname",StringType(),True)
+    ]
+)
+data=[
+    (1,"ho"),
+    (2,"ha"),
+    (3,"he")
+]
+dfc = spark.createDataFrame(data=data, schema=columns)
+display(dfc)
