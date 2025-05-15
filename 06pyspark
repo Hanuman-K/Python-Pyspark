@@ -1,0 +1,15 @@
+df2.withColumn("gender",when(df2.Gender=="Male","M").otherwise("F")).show()
+df2.select("Gender").distinct().show()
+df2.orderBy(df2.Eno.desc()).show()
+
+df2.groupBy("Gender").agg(sum("Sales").alias("sum"),\
+    count("Eno").alias("noofemp"),\
+    min("Salary").alias("minsal"),\
+    max("Salary").alias("maxsal"),\
+    avg("salary").alias("avgsal")
+    ).show()
+#to add a new column
+df2.withColumn("gender2",when(column("Eno")==101,lit("male"))
+               .when(column("eno")==102,lit("female"))
+               .otherwise(lit("unknown"))
+               ).show()
