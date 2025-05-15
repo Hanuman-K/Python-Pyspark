@@ -1,0 +1,18 @@
+from pyspark.sql.window import Window
+from pyspark.sql.functions import*
+
+data=[
+    ("alice","math",85),
+    ("alice","english",82),
+    ("bob","math",85),
+    ("bob","english",90),
+    ("charlie","math",95),
+    ("charlie","english",80),
+    ("kiran","math",75),
+]
+columns=["name","subject","marks"]
+df3=spark.createDataFrame(data=data,schema=columns)
+display(df3)
+
+
+
