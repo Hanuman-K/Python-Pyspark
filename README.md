@@ -1,1 +1,14 @@
 # Python-Pyspark
+
+columns=["eno","ename"]
+ActualData=[
+    (100,"ram"),
+    (200,"rama"),
+    (200,"ramana")
+]
+
+dfp = spark.createDataFrame(data=ActualData, schema=columns)
+
+display(dfp)
+dfp.show()
+dfp.printSchema()
