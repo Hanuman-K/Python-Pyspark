@@ -1,0 +1,26 @@
+from pyspark.sql.types import*
+columns=StructType(
+    [
+        StructField("Eno",IntegerType(),True),
+        StructField("Fname",StringType(),True),
+        StructField("Lname",StringType(),True),
+        StructField("Department",StringType(),True),
+        StructField("DOB",StringType(),True),
+        StructField("City",StringType(),True),
+        StructField("Sales",FloatType(),True),
+        StructField("Gender",StringType(),True),
+        StructField("Salary",IntegerType(),True) 
+    ]
+)
+data=[
+    (101,"sonu","king","IT","1999-01-20","Hyderabad",1020.21,"Male",10000),
+    (102,"sudi","kong","HR","2000-02-22","Banglore",1030.22,"Male",15000),
+    (103,"sana","zing","Sales","2001-03-24","Mumbai",1040.32,"Female",20000),
+    (104,"sanu","bing","IT","2002-04-12","Hyderabad",1032.23,"Male",25000),
+    (105,"monu","ding","HR","2003-05-18","Mumbai",1028.43,"Female",30000),
+]
+df = spark.createDataFrame(data=data, schema=columns)
+display(df)
+df.show()
+df.printSchema()
+
