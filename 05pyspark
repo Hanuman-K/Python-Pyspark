@@ -9,3 +9,4 @@ df2.withColumn("rpad",rpad(df2.Fullname,8,'@')).show()
 df2.withColumn("replace",regexp_replace(df2.Fullname,' ','-')).show()
 df2.withColumn("concat",concat(df2.Fname,lit(" "),df2.Lname)).show()
 df2.withColumn("concatws",concat_ws("_",df2.Fname,df2.Lname)).show()
+# a random comment by contributer
